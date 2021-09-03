@@ -43,7 +43,7 @@ $ sudo make install clean
 ```bash
 $ make
 $ mkdir -p ~/.local/bin
-$ copy bin/pushm ~/.local/bin
+$ copy pushm ~/.local/bin
 
 # to just type 'pushm' you should export it in your .shellrc file e.g.: .bashrc
 # check if PATH is already set
