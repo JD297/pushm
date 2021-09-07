@@ -28,29 +28,31 @@ $ history
 
 So you can also arrow up, hit return, type your password and you can use this command again. So you must not copy the credentials again and again and again (especially when you copy often things to your clipboard that you need to work with this comes very handy).
 
+# Requirements
+You need to have python3 installed on your box. Python modules that are required are mostly installed by default on linux and mac.
+
 ## Install
 ```bash
 $ git clone https://github.com/JD297/pushm
 $ cd pushm
 ```
 
-### Install to /usr/local/bin/pushm
+### Install to /usr/local/bin
 ```bash
-$ sudo make install clean
+$ sudo cp src/pushm /usr/local/bin
 ```
 
 ### Install to home directory
 ```bash
-$ make
 $ mkdir -p ~/.local/bin
-$ copy pushm ~/.local/bin
+$ copy src/pushm ~/.local/bin
 
-# to just type 'pushm' you should export it in your .shellrc file e.g.: .bashrc
+# to just type 'pushm' you should export it in your .shellrc file e.g.: ~/.bashrc
 # check if PATH is already set
 echo $PATH
-# if it not
+# if it is not set export the path
 export PATH=~/.local/bin:$PATH
 ```
 
 ## Security
-Basicly pushm will be secured by the [AES256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)-[CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) and [SHA2](https://en.wikipedia.org/wiki/SHA-2) algoithms. Advises for security and how it works against manipulation are following soon to release of version 1.0.0.
+Basicly pushm will be secured by the [AES256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)-[CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) algoithm. Advises for security and how it works against manipulation are following soon to release of version 1.0.0.
