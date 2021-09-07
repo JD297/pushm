@@ -1,4 +1,31 @@
 #!/usr/bin/env python3
 
+import argparse
+from argparse import RawTextHelpFormatter
+
 if __name__ == "__main__":
-	pass
+	parser = argparse.ArgumentParser(
+		prog		=	"pushm",
+		description	=	"python3 terminal-based temporary credential-storage",
+		epilog		=	"examples:\n" +
+						"  pushm --repo \"my-repository-name\"\n" +
+						"  pushm --repo \"my-repository-name\" --select \"foo\"\n" +
+						"  pushm --repo \"my-repository-name\" --select \"foo\" --insert \"bar\"\n",
+		formatter_class=RawTextHelpFormatter
+	)
+
+	parser.add_argument("-r", "--repo"	, action="store", type=str, metavar="<repo-name>",
+		help="Your repository name", required=True)
+	parser.add_argument("-i", "--insert", action="store", type=str, metavar="<data>",
+		help="Inserts given data into selected field", required=False)
+	parser.add_argument("-s", "--select", action="store", type=str, metavar="<field-name>",
+		help="Selects data from a given field", required=parser.parse_known_args()[0].insert is not None)
+
+	args = parser.parse_args()
+
+	if args.insert:
+		pass
+	elif args.select:
+		pass
+	else:
+		pass
