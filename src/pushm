@@ -3,6 +3,10 @@
 import argparse
 from argparse import RawTextHelpFormatter
 
+import getpass
+
+from handler import *
+
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(
 		prog		=	"pushm",
@@ -23,9 +27,11 @@ if __name__ == "__main__":
 
 	args = parser.parse_args()
 
+	password = getpass.getpass("[pushm] Password for " + args.repo + ": ")
+
 	if args.insert:
-		pass
+		handle_insert(args.repo, password, args.select, args.insert)
 	elif args.select:
-		pass
+		handle_select(args.repo, password, args.select)
 	else:
-		pass
+		handle_repo(args.repo, password)
