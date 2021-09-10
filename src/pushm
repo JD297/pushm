@@ -10,7 +10,7 @@ from handler import *
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(
 		prog		=	"pushm",
-		description	=	"python3 terminal-based temporary credential-storage",
+		description	=	"python3 terminal-based credential-storage",
 		epilog		=	"examples:\n" +
 						"  pushm --repo \"my-repository-name\"\n" +
 						"  pushm --repo \"my-repository-name\" --select \"foo\"\n" +
