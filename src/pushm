@@ -29,9 +29,12 @@ if __name__ == "__main__":
 
 	password = getpass.getpass("[pushm] Password for " + args.repo + ": ")
 
-	if args.insert:
-		handle_insert(args.repo, password, args.select, args.insert)
-	elif args.select:
-		handle_select(args.repo, password, args.select)
-	else:
-		handle_repo(args.repo, password)
+	try:
+		if args.insert:
+			handle_insert(args.repo, password, args.select, args.insert)
+		elif args.select:
+			handle_select(args.repo, password, args.select)
+		else:
+			handle_repo(args.repo, password)
+	except:
+		exit(1)
