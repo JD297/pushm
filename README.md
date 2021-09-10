@@ -1,29 +1,44 @@
 # pushm (private user shared memory)
 
 ## Introduction
-You can pipe text data in pushm and retrieve it later in another command. This is very handy e.g. when you need to build a mysql command with credentials but the password is very complex. A single credential could be copied to clipboard. But what is if you need also a credentials with username, password and host for mysql or other services? With pushm you can store temporarily multiple clipboards within an encrypted session and use it in commands. So you only need to prepare your session with your needed credentials and use commands with your set password and get a sudo like password prompt.
+You can put text data into a pushm session and retrieve it later in another command. An example use case could be to build a mysql command with secure credentials. It could get very frustrating to copy always the same password from a password-manager for the same mysql command. With pushm you can store multiple credentials or other data within an encrypted session and use it in commands.
 
 ```bash
-# prepare your seesion with a password
-$ pushm --new
-[pushm] Password for JD297: ********
+# Initialize your session with a password
+$ pushm --repo database
+[pushm] Password for "database": 
 
-# grep, awk or cut your text out of your environment file and pipe it to pushm
-$ cut -d':' -f2 creds.txt | pushm --slot DBPASS_JD
+# Get your session data in json format
+$ pushm --repo database
+[pushm] Password for "database": 
+{
+	"user": "admin",
+	"pass": "$ecur3P@ssw0rd"
+}
 
-# or you get an promot for data (for passwords that are in your password manager)
-$ pushm --slot DBUSER_JD
-[pushm] Data: JD297
+# Insert data into a session by slot name
+$ pushm --repo database -s name -i
+[pushm] Password for "database": 
+[pushm] Data for slot "name": JD297
 
-# example use case:
-$ mysql -u $(pushm DBUSER_JD) -p$(pushm DBPASS_JD) -h $(pushm DBHOST_JD) $(pushm DBNAME_JD) < backup.sql
-[pushm] Password for JD297: ********
+# Insert data into a session via pipe by slot name
+$ cut -d':' -f2 creds.txt | pushm --repo database -s password -p
+[pushm] Password for "database": 
+
+# Select data from a session by slot name
+$ pushm --repo database -s name
+[pushm] Password for "database": 
+JD297
+
+# Example:
+$ mysql -u $(pushm -r db -s user) -p$(pushm -r db -s pass) -h localhost mydb < backup.sql
+[pushm] Password for "db": 
 ```
 
 Also nice is that your credentials that are in an inline command will not be displayed as plaintext in the shell history.
 ```bash
 $ history
- 1000 mysql -u $(pushm DBUSER_JD) -p$(pushm DBPASS_JD) -h $(pushm DBHOST_JD) $(pushm DBNAME_JD) < backup.sql
+ 1000 mysql -u $(pushm -r db -s user) -p$(pushm -r db -s pass) -h localhost mydb < backup.sql
 ```
 
 So you can also arrow up, hit return, type your password and you can use this command again. So you must not copy the credentials again and again and again (especially when you copy often things to your clipboard that you need to work with this comes very handy).
