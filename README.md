@@ -42,7 +42,7 @@ $ history
 ```
 
 ## Requirements
-You need to have python3 installed on your box. Python modules that are required are mostly installed by default on linux and mac.
+You need to install python3 and the module "pycrypto" that are mostly installed by default on linux.
 
 ## Install
 
