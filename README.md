@@ -35,13 +35,11 @@ $ mysql -u $(pushm -r db -s user) -p$(pushm -r db -s pass) -h localhost mydb < b
 [pushm] Password for "db": 
 ```
 
-Also nice is that your credentials that are in an inline command will not be displayed as plaintext in the shell history.
+Credentials that are in an inline command will not be displayed as plaintext in the shell history.
 ```bash
 $ history
  1000 mysql -u $(pushm -r db -s user) -p$(pushm -r db -s pass) -h localhost mydb < backup.sql
 ```
-
-So you can also arrow up, hit return, type your password and you can use this command again. So you must not copy the credentials again and again and again (especially when you copy often things to your clipboard that you need to work with this comes very handy).
 
 # Requirements
 You need to have python3 installed on your box. Python modules that are required are mostly installed by default on linux and mac.
