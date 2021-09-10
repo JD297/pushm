@@ -12,9 +12,9 @@ if __name__ == "__main__":
 		prog		=	"pushm",
 		description	=	"python3 terminal-based credential-storage",
 		epilog		=	"examples:\n" +
-						"  pushm --repo \"my-repository-name\"\n" +
-						"  pushm --repo \"my-repository-name\" --select \"foo\"\n" +
-						"  pushm --repo \"my-repository-name\" --select \"foo\" --insert \"bar\"\n",
+					"  pushm --repo \"my-repository-name\"\n" +
+					"  pushm --repo \"my-repository-name\" --select \"foo\"\n" +
+					"  pushm --repo \"my-repository-name\" --select \"foo\" --insert \"bar\"\n",
 		formatter_class=RawTextHelpFormatter
 	)
 
