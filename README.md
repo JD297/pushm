@@ -41,29 +41,30 @@ $ history
  1000 mysql -u $(pushm -r db -s user) -p$(pushm -r db -s pass) -h localhost mydb < backup.sql
 ```
 
-# Requirements
+## Requirements
 You need to have python3 installed on your box. Python modules that are required are mostly installed by default on linux and mac.
 
 ## Install
+
+### Install to /opt and link to /usr/local/bin (recommended)
 ```bash
+$ cd /opt
+$ sudo git clone https://github.com/JD297/pushm
+$ sudo ln -s $(pwd)/src/pushm /usr/local/bin/
+```
+
+### Install to home directory and link to ~/.local/bin (not recommended)
+ATTENTION: Your passwords can be fished if other people have write privileges to the pushm directory
+```bash
+$ cd ~
 $ git clone https://github.com/JD297/pushm
 $ cd pushm
-```
-
-### Install to /usr/local/bin
-```bash
-$ sudo cp src/pushm /usr/local/bin
-```
-
-### Install to home directory
-```bash
 $ mkdir -p ~/.local/bin
-$ copy src/pushm ~/.local/bin
+$ ln -s $(pwd)/src/pushm ~/.local/bin/
 
-# to just type 'pushm' you should export it in your .shellrc file e.g.: ~/.bashrc
-# check if PATH is already set
+# Export ~/.locale/bin PATH
+# Check if the path already exists
 echo $PATH
-# if it is not set export the path
 export PATH=~/.local/bin:$PATH
 ```
 
