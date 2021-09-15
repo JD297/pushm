@@ -75,5 +75,8 @@ echo $PATH
 export PATH=~/.local/bin:$PATH
 ```
 
+## Sessions
+Your session will be saved to the ".pushm" directory that lives in your home directory. All session files will be saved as YOUR_REPO_NAME.session. The session file is encrypted with AES256. The file contains your session data in JSON format.
+
 ## Security
 Basicly pushm will be secured by the [AES256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)-[CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) and [SHA2](https://en.wikipedia.org/wiki/SHA-2) algoithms. Advises for security and how it works against manipulation are following soon to release of version 1.0.0.
