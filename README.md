@@ -1,5 +1,12 @@
 # pushm (private user shared memory)
 
+![Language](https://img.shields.io/badge/Language-python3-yellow.svg?style=flat&logo=python)
+![Version](https://img.shields.io/github/v/release/jd297/pushm.svg)
+[![License](https://img.shields.io/github/license/jd297/pushm.svg)](https://github.com/JD297/pushm/blob/master/LICENSE.md)
+![Lastcommit](https://img.shields.io/github/last-commit/jd297/pushm.svg)
+![Total lines](https://img.shields.io/tokei/lines/github/jd297/pushm)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/jd297/pushm.svg)](https://github.com/JD297/pushm/issues)
+
 ## Introduction
 You can put text data into a pushm session and retrieve it later in another command. An example use case could be to build a mysql command with secure credentials. It could get very frustrating to copy always the same password from a password-manager for the same mysql command. With pushm you can store multiple credentials or other data within an encrypted session and use it in commands.
 
