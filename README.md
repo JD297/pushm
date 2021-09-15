@@ -79,7 +79,7 @@ export PATH=~/.local/bin:$PATH
 Your session will be saved to the ".pushm" directory that lives in your home directory. All session files will be saved as YOUR_REPO_NAME.session. The session file is encrypted with AES256. The file contains your session data in JSON format.
 
 ## Security
-Basicly pushm will be secured by the [AES256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)-[CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) and [SHA2](https://en.wikipedia.org/wiki/SHA-2) algoithms. Advises for security and how it works against manipulation are following soon to release of version 1.0.0.
+Basicly pushm is secured by the [AES256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)-[CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) and [SHA2](https://en.wikipedia.org/wiki/SHA-2) algoithms. The session directory will be created with the 0700 mask and session files will gets the mode 0600. The password is hashed with the SHA256 alogorithm, so the password has always a 256bit strength. If the session file gets corrupted by an attacker, an exception will be thrown, because the password is wrong and the program exits with code 1 and no data will be returned to the terminal.
 
 ## Credits
 Special thanks to [@TheMorpheus407](https://github.com/TheMorpheus407/) he has written an easy to use python AES file encryption script.

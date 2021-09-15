@@ -10,7 +10,7 @@ def check_basedir():
 	return os.path.isdir(basedir)
 
 def create_basedir():
-	os.mkdir(basedir)
+	os.mkdir(basedir, mode=0o700)
 
 def check_session(session_file):
 	return os.path.isfile(session_file)

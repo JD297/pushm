@@ -21,6 +21,9 @@ def encrypt(file_path, password, data):
 	IV = Random.new().read(16)
 	encryptor = AES.new(key, AES.MODE_CBC, IV)
 
+	if not os.path.exists(file_path):
+		os.mknod(file_path, 0o600)
+
 	with open(file_path, 'wb') as f_output:
 		f_output.write(file_size.encode('utf-8'))
 		f_output.write(IV)
