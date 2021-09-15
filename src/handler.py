@@ -10,11 +10,7 @@ def check_basedir():
 	return os.path.isdir(basedir)
 
 def create_basedir():
-	try:
-		os.mkdir(basedir)
-	except:
-		print(f"[error] {basedir} directory is not writeable.")
-		exit(1)
+	os.mkdir(basedir)
 
 def check_session(session_file):
 	return os.path.isfile(session_file)
